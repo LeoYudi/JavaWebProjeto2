@@ -1,0 +1,98 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 1fr 5%;
+  row-gap: 3px;
+  grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  grid-area: header;
+  background-color: rgb(100,65,164);
+}
+
+.footer{
+  grid-area: footer;
+  background-color: rgb(100,65,164);
+  font-family: cursive;
+  text-shadow: 3px 0px 0px black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo{
+  color: white;
+  font-family: cursive; 
+  text-shadow: 3px 0px 0px black;
+  align-self: center;
+  text-decoration: none;
+  margin: 0 100px;
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login{
+  background-color: rgb(65,65,65);
+  color: white;
+  font-family: cursive;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+input[type=text], input[type=password]{
+  display: inline-block;
+  width: calc(100% - 20px) ;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: black;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+}
+
+input[type=checkbox]{
+  border: 0;
+  width: 15px;
+  height: 15px;
+}
+
+button{
+  width: 100%;
+  color: white;
+  background-color: black;
+  border:0;
+  font-size: 1.3rem;
+  font-family: cursive;
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+button:active{
+  background-color: rgb(100,65,164);
+}

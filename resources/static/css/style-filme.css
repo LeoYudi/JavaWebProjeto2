@@ -1,0 +1,209 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  font-family: cursive;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  grid-template-rows: 10% 1fr 5%;
+  row-gap: 3px;
+  column-gap: 0px;
+  grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "footer footer";
+}
+
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  grid-area: header;
+  background-color: rgb(100,65,164);
+  font-family: cursive;
+  text-shadow: 3px 0px 0px black;
+  color: white;
+  align-items: center;
+}
+
+.footer{
+  grid-area: footer;
+  background-color: rgb(100,65,164);
+  font-family: cursive;
+  text-shadow: 3px 0px 0px black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main{
+  grid-area: main;
+  background-color: black;
+}
+
+.titulo-filme{
+  color: white;
+  font-family: cursive;
+  width: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.sinopse{
+  color: white;
+  text-align: justify;
+  font-size: 1rem;
+  margin: 1rem 5rem;
+}
+
+.comment{
+  color: white;
+  margin: 0rem 5rem;
+  margin-top: 3rem;
+}
+
+.image{
+  grid-area: image;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://images-na.ssl-images-amazon.com/images/I/81ai6zx6eXL._AC_SY679_.jpg);
+  background-size: contain; 
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-self: center;
+}
+
+.sidebar{
+  grid-area: sidebar;
+  background-color: rgb(66, 65, 65);
+  width: 100%;
+  height: 100%;
+  border-radius: 0 5px 5px 0;
+  position: absolute;
+}
+
+.side{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60% 10% 10% 1fr;
+  grid-template-areas: 
+  "image"
+  "like-and-dislike"
+  "favorite"
+  "info";
+}
+
+.btn{
+  background-color: rgb(100,65,164);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.btn:hover{
+  background-color: rgb(67, 17, 160);
+}
+
+.like-dislike-favorite{
+  grid-area: like-and-dislike;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+}
+
+#likes, #dislikes{
+  color: white;
+  font-family: cursive;
+}
+
+.card{
+  background-color: rgb(50, 50, 50);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.favorite{
+  grid-area: favorite;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.info{
+  grid-area: info;
+  color: white;
+  font-family: cursive;
+  margin: 0px 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+textarea{
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+}
+
+.submit{
+  margin: 1rem 4rem;
+  width: auto; 
+  display: flex; 
+  justify-content: flex-end;
+}
+
+.titulo{
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+@media screen and (max-width: 900px) {
+  .container{
+    position: static;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .sidebar{
+    position: static;
+    margin-top: 64px;
+    border-radius: 0;
+  }
+
+  .side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .image{
+    width: 300px;
+    height: 450px;
+  }
+
+  .titulo{
+    margin: 10px 20px;
+  }
+}

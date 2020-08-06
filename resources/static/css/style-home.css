@@ -1,0 +1,271 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 15% 1fr;
+  grid-template-rows: 10% 1fr 5%;
+  row-gap: 3px;
+  column-gap: 0px;
+  grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "footer footer";
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  grid-area: header;
+  background-color: rgb(100,65,164);
+}
+
+.sidebar{
+  grid-area: sidebar;
+  background-color: rgb(66, 65, 65);
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.nome{
+  color: white;
+  font-family: cursive;
+  text-align: center;
+}
+
+.sidebar-item{
+  cursor: pointer;
+  font-family: cursive;
+  color: white;
+  background-color: black;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px;
+  width: 200px;
+}
+
+.sidebar-item:active{
+  background-color: rgb(100,65,164);
+}
+
+.main{
+  border-radius: 25px;
+  margin: 10px;
+  padding: 10px;
+  grid-area: main;
+  background-color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px 1fr 50px 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-template-areas:
+    "t1 t1 t1" 
+    "hot hot hot"
+    "t2 t2 t2"
+    ". . ."
+    ". . .";
+}
+
+.footer{
+  grid-area: footer;
+  background-color: rgb(100,65,164);
+  font-family: cursive;
+  text-shadow: 3px 0px 0px black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo{
+  color: white;
+  font-family: cursive; 
+  text-shadow: 3px 0px 0px black;
+  align-self: center;
+  text-decoration: none;
+  margin: 0 100px;
+}
+
+#titulo1{
+  grid-area: t1;
+  color: white;
+  font-family: cursive; 
+  text-shadow: 3px 0px 0px rgb(100,65,164);
+  align-self: center;
+}
+
+#titulo2{
+  grid-area: t2;
+  color: white;
+  font-family: cursive; 
+  text-shadow: 3px 0px 0px rgb(100,65,164);
+  align-self: center;
+}
+
+
+
+.trending{
+  grid-area: hot;
+  background-color: rgb(66, 65, 65);
+  border-radius: 25px;
+  display: grid;
+  column-gap: 5px;
+  padding: 5px;
+  grid-template-areas:
+    ". . . . . . . . . .";
+}
+
+.div-movie{
+  cursor: pointer;
+  border-radius: 25px;
+  width: 1fr;
+  border: 5px solid rgb(100,65,164);
+}
+
+.div-movie:hover{
+  border: 5px solid rgb(76, 36, 150);
+}
+
+.div-movie:active{
+  border: 5px solid rgb(66, 65, 65);
+}
+
+.categoria{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(66, 65, 65);
+  border-radius: 25px;
+  border: 5px solid rgb(100,65,164);
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.categoria:hover{
+  background-color: rgb(100,65,164);
+  border: 5px solid black;
+}
+
+.categoria:active{
+  background-color: rgb(110,85,185);
+  border: 10px solid black;
+}
+
+.titulo-categoria{
+  color: white;
+  font-family: cursive; 
+  text-shadow: 3px 0px 0px black;
+  align-self: center;
+}
+
+@media screen and (max-width: 900px) {
+  html, body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container{
+    position: static;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    top: 0;
+  }
+
+  .titulo{
+    margin: 0 10px;
+  }
+
+  .sidebar{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+
+  .sidebar button {
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 1rem;
+    margin-left: 50px;
+  }
+
+  .closebtn{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: 0;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .closebtn:hover{
+    background-color: rgb(100,65,164);
+  }
+
+  .openbtn {
+    background-color: rgb(100,65,164);
+    color: white;
+    border: 0;
+    font-size: 2rem;
+  }
+
+  .main{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trending{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .div-movie{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+  }
+
+  #titulo1{
+    margin-top: 86px;
+  }
+
+  .footer{
+    font-size: 1.5rem;
+  }
+
+  .categoria{
+    margin-bottom: 10px;
+  }
+}
