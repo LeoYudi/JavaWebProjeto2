@@ -29,5 +29,14 @@ public class UserController {
     return "redirect:/";
   }
   
+  @RequestMapping(value = "/login", method = RequestMethod.GET)
+  public String login() {
+    return "login";
+  }
   
+  @RequestMapping(value = "/login", method = RequestMethod.POST)
+  public String login(String email, String password) {
+    System.out.println(email + password);
+    return "home";
+  }
 }
