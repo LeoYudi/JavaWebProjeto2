@@ -1,7 +1,10 @@
 package com.example.spring.repository;
 
 import com.example.spring.models.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends CrudRepository<User, String> {
+import java.util.List;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+  public List<User> findByEmail(String email);
 }

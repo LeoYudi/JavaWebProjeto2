@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style-login.css">
-    <link rel="shortcut icon" href="../icone.png" type="image/x-icon" />
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style-login.css">
+  <link rel="shortcut icon" href="/img/icone.png" type="image/x-icon"/>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Home</title>
+</head>
 
-  <body onload="">
-    <div class="container">
-      <div class="header">
-        <h1 class="titulo">Login</h1>
-        <a class="titulo" href="../home.html">
-          <h1>Voltar</h1>
-        </a>
-      </div>
-      <div class="main">
-        <div class="login">
-          <form action="">
-            <label for="email">Email</label>
-            <input type="text" id="email" placeholder="exemplo@mail.com">
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" placeholder="senha">
-            <input type="checkbox" id="lembrar">
-            <label for="lembrar">Lembrar senha</label>
-            <button>Login</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer"><i class="far fa-copyright"></i> COPYRIGHT 2020</div>
+<body onload="">
+<div class="container">
+  <div class="header">
+    <h1 class="titulo">Login</h1>
+    <a class="titulo" href="../home.html">
+      <h1>Voltar</h1>
+    </a>
+  </div>
+  <div class="main">
+    <div class="login">
+      <form action="" method="post">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="exemplo@mail.com">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="password" placeholder="senha">
+        <input type="checkbox" id="lembrar" name="session">
+        <label for="lembrar">Lembrar senha</label>
+        <button type="submit">Login</button>
+      </form>
     </div>
-  </body>
-  <script src="https://kit.fontawesome.com/2ab085298c.js" crossorigin="anonymous"></script>
+  </div>
+  <div class="footer"><i class="far fa-copyright"></i> COPYRIGHT 2020</div>
+</div>
+</body>
+<script src="https://kit.fontawesome.com/2ab085298c.js" crossorigin="anonymous"></script>
 
 </html>
