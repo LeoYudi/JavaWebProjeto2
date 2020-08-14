@@ -5,6 +5,7 @@ import com.example.spring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,7 +20,9 @@ public class UserController {
   private UserRepository ur;
   
   @RequestMapping(value = "/", method = RequestMethod.GET)
-  public String home() {
+  public String home(Model model) {
+    User user = ur.findByEmail("lol_leonardohiguti@outlook.com").get(0);
+    model.addAttribute("user", user.getName());
     return "home";
   }
   
@@ -44,10 +47,10 @@ public class UserController {
   }
   
   @RequestMapping(value = "/login", method = RequestMethod.POST)
-  public String login(String email, String password, boolean session) {
+  public String login(String email, String password, boolean session, User user) {
     String hash = encoder.encode(password);
-    List<User> users = ur.findByEmail(email);
-    if (users.size() == 0)
+    user = ur.findByEmail(email).get(0);
+    if (user == null)
       return "redirect:/login";
     
     if (!encoder.matches(password, hash))
