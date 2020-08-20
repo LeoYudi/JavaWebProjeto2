@@ -18,7 +18,7 @@ public class User implements Serializable {
   private String name;
   private String email;
   private String password;
-  
+  private String image;
   
   public long getId() {
     return id;
@@ -50,5 +50,13 @@ public class User implements Serializable {
   
   public void setPassword(String password) {
     this.password = password;
+  }
+  
+  public String getImage() {
+    return image;
+  }
+  
+  public void setImage(String image) {
+    this.image = image;
   }
 }

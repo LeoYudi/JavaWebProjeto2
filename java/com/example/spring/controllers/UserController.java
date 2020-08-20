@@ -8,8 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +22,8 @@ import java.util.Optional;
 public class UserController {
   
   private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+  private static String folder = "./src/main/resources/static/img/";
+  private static String frontPath = "/img/";
   
   @Autowired
   private UserRepository ur;
@@ -33,11 +40,10 @@ public class UserController {
         request.getSession().invalidate();
         return "redirect:/login";
       }
-      System.out.println(session);
       if (!session)
         request.getSession().invalidate();
       
-      model.addAttribute("user", userOp.get().getName());
+      model.addAttribute("user", userOp.get());
       return "home";
       
     } catch (Exception e) {
@@ -51,16 +57,31 @@ public class UserController {
   }
   
   @RequestMapping(value = "/register", method = RequestMethod.POST)
-  public String register(User user, HttpServletRequest request) {
+  public String register(User user, MultipartFile file, HttpServletRequest request) {
     user.setPassword(encoder.encode(user.getPassword()));
-    List<User> users = ur.findByEmail(user.getEmail());
-    
-    if (users.size() > 0)
+    String image;
+    try {
+      if (!file.isEmpty()) {
+        byte[] bytes = file.getBytes();
+        image = file.getOriginalFilename();
+        Path path = Paths.get(folder + image);
+        path.startsWith(path);
+        Files.write(path, bytes);
+      } else
+        image = "default.jpg";
+      
+      List<User> users = ur.findByEmail(user.getEmail());
+      if (users.size() > 0)
+        return "redirect:/register";
+      
+      user.setImage(frontPath + image);
+      ur.save(user);
+      request.getSession().setAttribute("id", user.getId());
+      return "redirect:/";
+    } catch (IOException e) {
+      e.printStackTrace();
       return "redirect:/register";
-    
-    ur.save(user);
-    request.getSession().setAttribute("id", user.getId());
-    return "redirect:/";
+    }
   }
   
   @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -71,9 +92,12 @@ public class UserController {
   @RequestMapping(value = "/login", method = RequestMethod.POST)
   public String login(String email, String password, boolean session, HttpServletRequest request) {
     String hash = encoder.encode(password);
-    User user = ur.findByEmail(email).get(0);
-    if (user == null)
+    List<User> listUser = ur.findByEmail(email);
+    
+    if (listUser.size() != 1)
       return "redirect:/login";
+    
+    User user = listUser.get(0);
     
     if (!encoder.matches(password, hash))
       return "redirect:/login";
