@@ -32,7 +32,6 @@ public class UserController {
   public String home(Model model, HttpServletRequest request) {
     try {
       long id = (long) request.getSession().getAttribute("id");
-      boolean session = (boolean) request.getSession().getAttribute("session");
       
       Optional<User> userOp = ur.findById(id);
       
@@ -40,8 +39,6 @@ public class UserController {
         request.getSession().invalidate();
         return "redirect:/login";
       }
-      if (!session)
-        request.getSession().invalidate();
       
       model.addAttribute("user", userOp.get());
       return "home";
@@ -90,7 +87,7 @@ public class UserController {
   }
   
   @RequestMapping(value = "/login", method = RequestMethod.POST)
-  public String login(String email, String password, boolean session, HttpServletRequest request) {
+  public String login(String email, String password, HttpServletRequest request) {
     String hash = encoder.encode(password);
     List<User> listUser = ur.findByEmail(email);
     
@@ -103,8 +100,13 @@ public class UserController {
       return "redirect:/login";
     
     request.getSession().setAttribute("id", user.getId());
-    request.getSession().setAttribute("session", session);
     
     return "redirect:/";
+  }
+  
+  @RequestMapping(value = "/logout", method = RequestMethod.GET)
+  public String logout(HttpServletRequest request) {
+    request.getSession().invalidate();
+    return "redirect:/login";
   }
 }
