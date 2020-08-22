@@ -73,7 +73,7 @@ html, body {
   grid-area: image;
   width: 100%;
   height: 100%;
-  background-image: url(https://images-na.ssl-images-amazon.com/images/I/81ai6zx6eXL._AC_SY679_.jpg);
+  /* background-image: url(https://images-na.ssl-images-amazon.com/images/I/81ai6zx6eXL._AC_SY679_.jpg); */
   background-size: contain; 
   background-position: center;
   background-repeat: no-repeat;
