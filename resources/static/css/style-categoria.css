@@ -57,6 +57,11 @@ html, body {
   margin: 0 100px;
 }
 
+a.titulo:hover{
+  color: rgb(170, 160, 160);
+  text-shadow: 3px 5px 5px black;
+}
+
 .filme{
   cursor: pointer;
   border-radius: 25px;
@@ -71,11 +76,6 @@ html, body {
 
 .filme:active{
   border: 5px solid rgb(66, 65, 65);
-}
-
-a:visited, a:link {
-    text-decoration: inherit;
-    color: inherit;
 }
 
 @media screen and (max-width: 900px) {

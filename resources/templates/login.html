@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="../static/css/style-login.css"> -->
+  <!-- <link rel="shortcut icon" href="../static/img/icone.png" type="image/x-icon"/> -->
   <link rel="stylesheet" href="/css/style-login.css">
   <link rel="shortcut icon" href="/img/icone.png" type="image/x-icon"/>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Home</title>
+  <title>Login</title>
 </head>
 
 <body onload="">
@@ -15,16 +17,14 @@
   <div class="header">
     <h1 class="titulo">Login</h1>
     <a class="titulo" href="/register">
-      <h1>Registrar</h1>
+      <h1>Registrar-se</h1>
     </a>
   </div>
   <div class="main">
     <div class="login">
-      <form action="" method="post">
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" placeholder="exemplo@mail.com">
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" name="password" placeholder="senha">
+      <form action="" method="POST">
+        Email: <input type="text" value="" name="email">
+        Senha: <input type="password" value="" name="password">
         <button type="submit">Login</button>
       </form>
     </div>
