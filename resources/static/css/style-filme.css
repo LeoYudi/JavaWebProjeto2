@@ -73,7 +73,7 @@ html, body {
   grid-area: image;
   width: 100%;
   height: 100%;
-  background-image: url(https://images-na.ssl-images-amazon.com/images/I/81ai6zx6eXL._AC_SY679_.jpg);
+  /* background-image: url(https://images-na.ssl-images-amazon.com/images/I/81ai6zx6eXL._AC_SY679_.jpg); */
   background-size: contain; 
   background-position: center;
   background-repeat: no-repeat;
@@ -167,8 +167,18 @@ textarea{
 }
 
 .titulo{
+  color: white;
+  font-family: cursive; 
+  text-shadow: 3px 0px 0px black;
+  align-self: center;
+  text-decoration: none;
   margin-right: 100px;
   margin-left: 100px;
+}
+
+a.titulo:hover{
+  color: rgb(170, 160, 160);
+  text-shadow: 3px 5px 5px black;
 }
 
 @media screen and (max-width: 900px) {

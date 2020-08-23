@@ -53,6 +53,10 @@ html, body {
   width: 200px;
 }
 
+.sidebar-item:hover{
+  background-color: rgb(20, 20, 20);
+}
+
 .sidebar-item:active{
   background-color: rgb(100,65,164);
 }
@@ -94,6 +98,11 @@ html, body {
   align-self: center;
   text-decoration: none;
   margin: 0 100px;
+}
+
+a.titulo:hover{
+  color: rgb(170, 160, 160);
+  text-shadow: 3px 5px 5px black;
 }
 
 #titulo1{
