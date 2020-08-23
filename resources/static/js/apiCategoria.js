@@ -22,7 +22,7 @@ xhr.addEventListener("readystatechange", function () {
     
     for (let i=0; i<10; i++){
       $('#filme'+(i+1)).css('background-image', `url(${imgPath+dados.results[i].poster_path})`);
-      $('#filme'+(i+1)).attr('href', `/filme?id=${dados.results[i].id}&idCategoria=${idCategoria}`);
+      $('#filme'+(i+1)).attr('href', `/filme?id=${dados.results[i].id}`);
     }
   }
 });
