@@ -11,12 +11,6 @@ public class MovieController {
   @RequestMapping(value = "/categoria", method = RequestMethod.GET)
   public String categoria(@RequestParam String id, Model model) {
     model.addAttribute("id", id);
-    return "categoria";
-  }
-  
-  @RequestMapping(value = "/filme", method = RequestMethod.GET)
-  public String movie(@RequestParam String id, Model model) {
-    model.addAttribute("id", id);
-    return "filme";
+    return "redirect:/";
   }
 }
