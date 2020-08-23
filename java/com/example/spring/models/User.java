@@ -1,10 +1,9 @@
 package com.example.spring.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User implements Serializable {
@@ -14,11 +13,27 @@ public class User implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
-  
+
+  @Column
   private String name;
+
+  @Column
   private String email;
+
+  @Column
   private String password;
+
+  @Column
   private String image;
+
+  @OneToMany(mappedBy = "user")
+  private List<Comment> comments = new ArrayList<>();
+
+  @OneToMany(mappedBy = "user")
+  private List<Favorite> favorites = new ArrayList<>();
+
+  @OneToMany(mappedBy = "user")
+  private List<Like> like = new ArrayList<>();
   
   public long getId() {
     return id;
