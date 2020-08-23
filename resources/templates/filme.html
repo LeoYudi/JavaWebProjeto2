@@ -4,10 +4,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style-filme.css">
-    <link rel="shortcut icon" href="../static/img/icone.png" type="image/x-icon"/>
-    <!-- <link rel="stylesheet" href="/css/style-filme.css"> -->
-    <!-- <link rel="shortcut icon" href="/img/icone.png" type="image/x-icon"/> -->
+    <link rel="stylesheet" href="/css/style-filme.css">
+    <link rel="shortcut icon" href="/img/icone.png" type="image/x-icon"/>
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
@@ -21,7 +19,7 @@
     <div class="container">
       <div class="header">
         <h1 class="titulo"></h1>
-        <a class="titulo" href="/home">
+        <a class="titulo" href="/">
           <h1>Voltar</h1>
         </a>
       </div>
@@ -86,8 +84,14 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/2ab085298c.js" crossorigin="anonymous"></script>
-  <!-- <script src="/js/apiFilme.js"></script> -->
-  <script src="../static/js/apiFilme.js"></script>
-  
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var idFilme = /*[[${id}]]*/ 'default';
+    console.log(idFilme);
+
+    /*]]>*/
+</script>
+  <script src="/js/apiFilme.js"></script>
 
 </html>

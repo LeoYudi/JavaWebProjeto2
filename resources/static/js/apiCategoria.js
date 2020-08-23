@@ -11,11 +11,11 @@ xhr.addEventListener("readystatechange", function () {
     
     for (let i=0; i<10; i++){
       $('#filme'+(i+1)).css('background-image', `url(${imgPath+dados.results[i].poster_path})`);
+      $('#filme'+(i+1)).attr('href', `/filme?id=${dados.results[i].id}`);
     }
   }
 });
 
-xhr.open("GET", "https://api.themoviedb.org/3/discover/movie/?api_key=332da2c194d16ef826b8f0b5a28e8da9&language=pt-BR&with_genres="+message);
-// xhr.open("GET", "https://api.themoviedb.org/3/genre/movie/list?api_key=332da2c194d16ef826b8f0b5a28e8da9&language=pt-BR);
+xhr.open("GET", "https://api.themoviedb.org/3/discover/movie/?api_key=332da2c194d16ef826b8f0b5a28e8da9&language=pt-BR&with_genres="+idCategoria);
 
 xhr.send(req);
