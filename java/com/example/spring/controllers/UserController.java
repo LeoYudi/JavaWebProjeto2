@@ -35,7 +35,7 @@ public class UserController {
       
       Optional<User> userOp = ur.findById(id);
       
-      if (userOp.isEmpty()) {
+      if (!userOp.isPresent()) {
         request.getSession().invalidate();
         return "redirect:/login";
       }
