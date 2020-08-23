@@ -55,7 +55,9 @@ public class UserController {
   }
   
   @RequestMapping(value = "/register", method = RequestMethod.POST)
-  public String register(User user, MultipartFile file, HttpServletRequest request) {
+  public String register(User user, String confirm, MultipartFile file, HttpServletRequest request) {
+    if (user.getPassword() != confirm)
+      return "redirect:/register";
     user.setPassword(encoder.encode(user.getPassword()));
     String image;
     try {

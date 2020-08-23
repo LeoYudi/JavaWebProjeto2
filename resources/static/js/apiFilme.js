@@ -1,6 +1,6 @@
 var imgPath = "https://image.tmdb.org/t/p/w500";
 // var idFilme = tt4154796; 
-var idFilme = 234;
+var idFilme = 569715;
 var dados = null;
 
 var req1 = null;
@@ -41,9 +41,9 @@ xhr2.addEventListener("readystatechange", function () {
     console.log(dados);
 
     $('#classificacao').append(() => {
-      var pg = dados.results.filter(pais => {return pais.iso_3166_1 == "BR"})[0];
+      var pg = dados.results.filter(pais => {return pais.iso_3166_1 === "BR"})[0];
       if (!pg) {
-        pg = dados.results.filter(pais => {return pais.iso_3166_1 == "US"})[0];
+        pg = dados.results.filter(pais => {return pais.iso_3166_1 === "US"})[0];
         return pg.release_dates[0].certification + " (EUA)";
       } 
       else return pg.release_dates[0].certification;
