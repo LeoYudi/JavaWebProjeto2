@@ -7,6 +7,8 @@ var req2 = null;
 var xhr1 = new XMLHttpRequest();
 var xhr2 = new XMLHttpRequest();
 
+$('#voltar').attr('href', '/categoria?id='+idCategoria);
+
 xhr1.addEventListener("readystatechange", function () {
   if (this.readyState === this.DONE) {
     dados = JSON.parse(this.response)

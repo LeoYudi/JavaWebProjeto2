@@ -18,8 +18,8 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1 class="titulo"></h1>
-        <a class="titulo" href="/">
+        <h1 class="titulo" id="categoria"></h1>
+        <a class="titulo" id="voltar" href="">
           <h1>Voltar</h1>
         </a>
       </div>
@@ -88,7 +88,8 @@
     /*<![CDATA[*/
 
     var idFilme = /*[[${id}]]*/ 'default';
-    console.log(idFilme);
+    var idCategoria = /*[[${idCategoria}]]*/ 'default';
+    console.log(idFilme, idCategoria);
 
     /*]]>*/
 </script>
