@@ -34,6 +34,7 @@ public class UserController {
       long id = (long) request.getSession().getAttribute("id");
       
       Optional<User> userOp = ur.findById(id);
+
       
       if (!userOp.isPresent()) {
         request.getSession().invalidate();

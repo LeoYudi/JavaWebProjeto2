@@ -33,8 +33,8 @@ public class User implements Serializable {
   private List<Favorite> favorites = new ArrayList<>();
 
   @OneToMany(mappedBy = "user")
-  private List<Like> like = new ArrayList<>();
-  
+  private List<Likes> likes = new ArrayList<>();
+
   public long getId() {
     return id;
   }
@@ -74,4 +74,5 @@ public class User implements Serializable {
   public void setImage(String image) {
     this.image = image;
   }
+
 }

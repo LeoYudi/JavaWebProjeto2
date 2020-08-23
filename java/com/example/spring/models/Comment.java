@@ -1,10 +1,11 @@
 package com.example.spring.models;
 
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Comment{
+public class Comment implements Serializable {
+  private static final long serialVersionUID = 1L;
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,10 +1,12 @@
 package com.example.spring.models;
 
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Like {
+public class Likes implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
@@ -12,8 +14,8 @@ public class Like {
   @Column(nullable = false)
   private long movie_id;
 
-  @Column(length = 250)
-  private short value; // -1 = deslike, 0 = neutro, 1 = like
+  @Column
+  private int value; // -1 = deslike, 0 = neutro, 1 = like
 
   @ManyToOne
   @JoinColumn(nullable = false)
