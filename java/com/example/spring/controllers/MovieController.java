@@ -19,4 +19,9 @@ public class MovieController {
     model.addAttribute("id", id);
     return "filme";
   }
+
+  @RequestMapping(value = "/trending", method = RequestMethod.GET)
+  public String trending() {
+    return "trending";
+  }
 }

@@ -4,15 +4,6 @@ var dados = null;
 
 var xhr = new XMLHttpRequest();
 
-switch(idCategoria) {
-  case "28": categoria = "Ação"; break;
-  case "16": categoria = "Animação"; break;
-  case "35": categoria = "Comédia"; break;
-  case "878": categoria = "Ficção Científica"; break;
-  case "10749": categoria = "Romance"; break;
-  case "53": categoria = "Suspense"; break;
-}
-
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState === this.DONE) {
     dados = JSON.parse(this.response)
@@ -25,6 +16,6 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "https://api.themoviedb.org/3/trending/all/day?api_key=332da2c194d16ef826b8f0b5a28e8da9&language=pt-BR&with_genres="+idCategoria);
+xhr.open("GET", "https://api.themoviedb.org/3/trending/movie/week?api_key=332da2c194d16ef826b8f0b5a28e8da9&language=pt-BR");
 
 xhr.send(req);
