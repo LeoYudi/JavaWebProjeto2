@@ -27,6 +27,5 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "https://api.themoviedb.org/3/discover/movie/?api_key=332da2c194d16ef826b8f0b5a28e8da9&language=pt-BR&with_genres="+idCategoria);
-
+xhr.open("GET", "https://api.themoviedb.org/3/discover/movie/?api_key=332da2c194d16ef826b8f0b5a28e8da9&language=pt-BR&vote_count.gte=750&with_genres="+idCategoria);
 xhr.send(req);

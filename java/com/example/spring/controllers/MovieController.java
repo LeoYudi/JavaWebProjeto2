@@ -58,4 +58,9 @@ public class MovieController {
   public String trending() {
     return "trending";
   }
+
+  @RequestMapping(value = "/toprated", method = RequestMethod.GET)
+  public String toprated() {
+    return "toprated";
+  }
 }
