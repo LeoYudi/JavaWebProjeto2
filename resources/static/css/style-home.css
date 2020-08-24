@@ -48,13 +48,14 @@ html, body {
   color: white;
   background-color: black;
   border: none;
+  border-radius: 25px;
   font-size: 1.5rem;
   padding: 10px;
   width: 200px;
 }
 
 .sidebar-item:hover{
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(50, 50, 50);
 }
 
 .sidebar-item:active{

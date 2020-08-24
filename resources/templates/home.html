@@ -31,12 +31,12 @@
     <div><a href="/toprated">
       <button class="sidebar-item">Bem avaliados</button>
     </a></div>
-    <div>
+    <div><a href="/">
       <button class="sidebar-item">Favoritos</button>
-    </div>
-    <div>
-      <button class="sidebar-item">Relevantes</button>
-    </div>
+    </a></div>
+    <div><a href="/" id="aleatorio">
+      <button class="sidebar-item">Filme aleatório</button>
+    </a></div>
   </div>
   <div class="main">
     <h1 id="titulo1">Lançamentos</h1>
@@ -80,5 +80,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/2ab085298c.js" crossorigin="anonymous"></script>
 <script src="/js/apiLatest.js"></script>
+<script>
+  $('#aleatorio').attr('href', "/filme?id="+parseInt(Math.random()*80000))
+</script>
 
 </html>
