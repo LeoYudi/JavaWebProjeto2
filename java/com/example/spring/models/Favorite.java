@@ -12,9 +12,9 @@ public class Favorite implements Serializable {
   private long id;
 
   @Column(nullable = false)
-  private long movie_id;
+  private long movieId;
 
   @ManyToOne
-  @JoinColumn(name = "user_id", nullable = false)
+  @JoinColumn(nullable = false)
   private User user;
 }
