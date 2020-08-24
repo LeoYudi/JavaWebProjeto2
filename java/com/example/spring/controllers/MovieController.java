@@ -40,8 +40,6 @@ public class MovieController {
 
   @RequestMapping(value = "/filme", method = RequestMethod.POST)
   public String movie(String comment, String movieid, Model model, HttpServletRequest request) {
-    System.out.println(comment);
-    System.out.println(movieid);
     Comment usercomment = new Comment();
 
     long id = (long) request.getSession().getAttribute("id");
