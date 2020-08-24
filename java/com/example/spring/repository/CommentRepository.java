@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
   public List<Comment> findByMovieId(long id);
-
 }
