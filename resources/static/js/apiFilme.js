@@ -1,6 +1,7 @@
 var imgPath = "https://image.tmdb.org/t/p/w500";
+const urlParams = new URLSearchParams(window.location.search);
 // var idFilme = tt4154796; 
-var idFilme = 569715;
+var idFilme = urlParams.get('id');
 var dados = null;
 
 var req1 = null;
@@ -31,7 +32,8 @@ xhr1.addEventListener("readystatechange", function () {
       });
       return generos.join(', ');
     })
-    
+
+    $('#movieID').val(idFilme)
   }
 });
 
