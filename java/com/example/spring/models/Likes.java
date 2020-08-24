@@ -12,7 +12,7 @@ public class Likes implements Serializable {
   private long id;
 
   @Column(nullable = false)
-  private long movie_id;
+  private long movieId;
 
   @Column
   private int value; // -1 = deslike, 0 = neutro, 1 = like

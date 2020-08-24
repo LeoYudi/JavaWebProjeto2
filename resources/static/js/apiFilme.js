@@ -1,4 +1,7 @@
 var imgPath = "https://image.tmdb.org/t/p/w500";
+const urlParams = new URLSearchParams(window.location.search);
+// var idFilme = tt4154796;
+var idFilme = urlParams.get('id');
 var dados = null;
 
 var req1 = null;
@@ -39,7 +42,8 @@ xhr1.addEventListener("readystatechange", function () {
       });
       return generos.join(', ');
     })
-    
+
+    $('#movieID').val(idFilme)
   }
 });
 
@@ -54,7 +58,7 @@ xhr2.addEventListener("readystatechange", function () {
         pg = dados.results.filter(pais => {return pais.iso_3166_1 === "US"})[0];
         if (pg && pg.release_dates[0].certification != "") return pg.release_dates[0].certification + " (EUA)";
         else return "-";
-      } 
+      }
       else return pg.release_dates[0].certification;
     });
   }

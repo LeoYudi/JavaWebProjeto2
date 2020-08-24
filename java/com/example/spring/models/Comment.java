@@ -12,7 +12,7 @@ public class Comment implements Serializable {
   private long id;
 
   @Column(nullable = false)
-  private long movie_id;
+  private long movieId;
 
   @Column(length = 250)
   private String comment;
@@ -20,4 +20,38 @@ public class Comment implements Serializable {
   @ManyToOne
   @JoinColumn(nullable = false)
   private User user;
+
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public long getMovieId() {
+    return movieId;
+  }
+
+  public void setMovieId(long movieId) {
+    this.movieId = movieId;
+  }
+
+  public String getComment() {
+    return comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+
 }

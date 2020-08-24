@@ -19,10 +19,10 @@ xhr.addEventListener("readystatechange", function () {
   if (this.readyState === this.DONE) {
     dados = JSON.parse(this.response)
     console.log(dados);
-    
+
     for (let i=0; i<10; i++){
       $('#filme'+(i+1)).css('background-image', `url(${imgPath+dados.results[i].poster_path})`);
-      $('#filme'+(i+1)).attr('href', `/filme?id=${dados.results[i].id}`);
+      $('#filme'+(i+1)).attr("href", `/filme?id=${dados.results[i].id}`);
     }
   }
 });

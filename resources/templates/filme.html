@@ -18,8 +18,8 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1 class="titulo" id="categoria"></h1>
-        <a class="titulo" id="voltar" href="">
+        <h1 class="titulo"></h1>
+        <a class="titulo" href="/">
           <h1>Voltar</h1>
         </a>
       </div>
@@ -41,7 +41,7 @@
               </button>
 
               <button class="btn">
-                <i class="fas fa-star"></i> 
+                <i class="fas fa-star"></i>
                 <span style="font-family: cursive;">Favoritar</span></button>
             </div>
 
@@ -67,15 +67,18 @@
           <hr>
         </div>
 
-        <div class="comment">
-          <h2 style="margin-bottom: 0;"><b>COMENTÁRIOS</b></h2>
-          <hr>
-          <textarea rows="5"></textarea>
-        </div>
+        <form action="" method="POST">
+          <div class="comment">
+            <h2 style="margin-bottom: 0;"><b>COMENTÁRIOS</b></h2>
+            <hr>
+            <input id="movieID" type="text" value="" name="movieid" style="display: none">
+            <textarea name="comment" rows="5"></textarea>
+          </div>
 
-        <div class="submit">
-          <button class="btn" style="font-family:cursive">Enviar</button>
-        </div>
+          <div class="submit">
+            <button class="btn" style="font-family:cursive" type="submit">Enviar</button>
+          </div>
+        </form>
 
       </div>
       <div class="footer">© COPYRIGHT 2020</div>
@@ -84,14 +87,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/2ab085298c.js" crossorigin="anonymous"></script>
-  <script th:inline="javascript">
-    /*<![CDATA[*/
-
-    var idFilme = /*[[${id}]]*/ 'default';
-    console.log(idFilme);
-
-    /*]]>*/
-</script>
+  <!-- <script src="/js/apiFilme.js"></script> -->
   <script src="/js/apiFilme.js"></script>
+
 
 </html>
