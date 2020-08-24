@@ -20,9 +20,10 @@
   </div>
   <div class="sidebar">
     <div>
-      <img th:src="${user.getImage()}"
-           alt="" width="200" height="200" style="border-radius: 100px;">
-      <h2 class="nome"><p th:text="${user.getName()}"></p></h2>
+      <img th:src="${user.getImage()}" alt="" width="200" height="200" style="border-radius: 100px;">
+      <h2 class="nome">
+        <p th:text="${user.getName()}"></p>
+      </h2>
     </div>
     <div><a href="/trending">
       <button class="sidebar-item">Em alta</button>
@@ -38,28 +39,18 @@
     </div>
   </div>
   <div class="main">
-    <h1 id="titulo1">Mais vistos</h1>
+    <h1 id="titulo1">Lançamentos</h1>
     <div class="trending">
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/9/9b/Avengers_Endgame.jpg);
-          background-size: cover; background-position: center;"></a>
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/b/b0/Avatar-Teaser-Poster.jpg);
-          background-size: cover; background-position: center;"></a>
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/2/22/Titanic_poster.jpg);
-          background-size: cover; background-position: center;"></a>
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/a/ae/Starwars_06.jpg);
-          background-size: cover; background-position: center;"></a>
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/9/90/Avengers_Infinity_War.jpg);
-          background-size: cover; background-position: center;"></a>
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/4/4d/Jurassic_World_2015.jpg);
-          background-size: cover; background-position: center;"></a>
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/d/d1/The_Lion_King_%282019%29.jpg);
-          background-size: cover; background-position: center;"></a>
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/6/69/The_Avengers_Cartaz.jpg);
-          background-size: cover; background-position: center;"></a>
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/b/b8/Furious_7_poster.jpg);
-          background-size: cover; background-position: center;"></a>
-      <a href="/" class="div-movie" style="background-image: url(https://upload.wikimedia.org/wikipedia/pt/4/4f/Frozen_2_poster.jpg);
-          background-size: cover; background-position: center;"></a>
+      <a id="filme1" class="div-movie" style="background-size: cover; background-position: center;"></a>
+      <a id="filme2" class="div-movie" style="background-size: cover; background-position: center;"></a>
+      <a id="filme3" class="div-movie" style="background-size: cover; background-position: center;"></a>
+      <a id="filme4" class="div-movie" style="background-size: cover; background-position: center;"></a>
+      <a id="filme5" class="div-movie" style="background-size: cover; background-position: center;"></a>
+      <a id="filme6" class="div-movie" style="background-size: cover; background-position: center;"></a>
+      <a id="filme7" class="div-movie" style="background-size: cover; background-position: center;"></a>
+      <a id="filme8" class="div-movie" style="background-size: cover; background-position: center;"></a>
+      <a id="filme9" class="div-movie" style="background-size: cover; background-position: center;"></a>
+      <a id="filme10" class="div-movie" style="background-size: cover; background-position: center;"></a>
     </div>
 
     <h1 id="titulo2">Categorias</h1>
@@ -88,4 +79,6 @@
 <script src="/js/main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/2ab085298c.js" crossorigin="anonymous"></script>
+<script src="/js/apiLatest.js"></script>
+
 </html>
