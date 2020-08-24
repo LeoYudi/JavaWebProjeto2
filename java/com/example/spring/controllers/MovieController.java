@@ -55,4 +55,9 @@ public class MovieController {
     commentRepository.save(usercomment);
     return "filme";
   }
+
+  @RequestMapping(value = "/trending", method = RequestMethod.GET)
+  public String trending() {
+    return "trending";
+  }
 }

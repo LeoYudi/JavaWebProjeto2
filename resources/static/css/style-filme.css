@@ -14,7 +14,7 @@ html, body {
   grid-template-rows: 10% 1fr 5%;
   row-gap: 3px;
   column-gap: 0px;
-  grid-template-areas: 
+  grid-template-areas:
     "header header"
     "sidebar main"
     "footer footer";
@@ -75,7 +75,7 @@ html, body {
   height: 40vh;
   margin-top: 5px;
   /* background-image: url(https://images-na.ssl-images-amazon.com/images/I/81ai6zx6eXL._AC_SY679_.jpg); */
-  background-size: contain; 
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   justify-self: center;
@@ -95,11 +95,16 @@ html, body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 60% 10% 10% 1fr;
-  grid-template-areas: 
+  grid-template-areas:
   "image"
   "like-and-dislike"
   "favorite"
   "info";
+}
+
+p {
+  margin: 0px 0px 10px 0px;
+  text-shadow: 3px 0px 5px black;
 }
 
 .btn{
@@ -163,14 +168,14 @@ textarea{
 
 .submit{
   margin: 1rem 4rem;
-  width: auto; 
-  display: flex; 
+  width: auto;
+  display: flex;
   justify-content: flex-end;
 }
 
 .titulo{
   color: white;
-  font-family: cursive; 
+  font-family: cursive;
   text-shadow: 3px 0px 0px black;
   align-self: center;
   text-decoration: none;
