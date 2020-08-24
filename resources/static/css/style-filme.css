@@ -72,7 +72,8 @@ html, body {
 .image{
   grid-area: image;
   width: 100%;
-  height: 100%;
+  height: 40vh;
+  margin-top: 5px;
   /* background-image: url(https://images-na.ssl-images-amazon.com/images/I/81ai6zx6eXL._AC_SY679_.jpg); */
   background-size: contain; 
   background-position: center;
@@ -157,6 +158,7 @@ textarea{
   color: white;
   background-color: black;
   padding: 10px;
+  resize: vertical;
 }
 
 .submit{

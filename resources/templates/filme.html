@@ -4,8 +4,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style-filme.css">
-    <link rel="shortcut icon" href="../static/img/icone.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="/css/style-filme.css">
+    <link rel="shortcut icon" href="/img/icone.png" type="image/x-icon"/>
     <!-- <link rel="stylesheet" href="/css/style-filme.css"> -->
     <!-- <link rel="shortcut icon" href="/img/icone.png" type="image/x-icon"/> -->
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
@@ -21,7 +21,7 @@
     <div class="container">
       <div class="header">
         <h1 class="titulo"></h1>
-        <a class="titulo" href="/home">
+        <a class="titulo" href="/">
           <h1>Voltar</h1>
         </a>
       </div>
@@ -69,15 +69,18 @@
           <hr>
         </div>
 
-        <div class="comment">
-          <h2 style="margin-bottom: 0;"><b>COMENTÁRIOS</b></h2>
-          <hr>
-          <textarea rows="5"></textarea>
-        </div>
+        <form action="" method="POST">
+          <div class="comment">
+            <h2 style="margin-bottom: 0;"><b>COMENTÁRIOS</b></h2>
+            <hr>
+            <input id="movieID" type="text" value="" name="movieid" style="display: none">
+            <textarea name="comment" rows="5"></textarea>
+          </div>
 
-        <div class="submit">
-          <button class="btn" style="font-family:cursive">Enviar</button>
-        </div>
+          <div class="submit">
+            <button class="btn" style="font-family:cursive" type="submit">Enviar</button>
+          </div>
+        </form>
 
       </div>
       <div class="footer">© COPYRIGHT 2020</div>
@@ -87,7 +90,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/2ab085298c.js" crossorigin="anonymous"></script>
   <!-- <script src="/js/apiFilme.js"></script> -->
-  <script src="../static/js/apiFilme.js"></script>
+  <script src="/js/apiFilme.js"></script>
   
 
 </html>
