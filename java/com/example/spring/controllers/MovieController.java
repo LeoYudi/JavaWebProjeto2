@@ -3,8 +3,10 @@ package com.example.spring.controllers;
 import com.example.spring.models.Comment;
 import com.example.spring.models.Likes;
 import com.example.spring.models.User;
-import com.example.spring.repository.CommentRepository;
 import com.example.spring.repository.LikeRepository;
+import com.example.spring.models.Favorite;
+import com.example.spring.repository.CommentRepository;
+import com.example.spring.repository.FavoriteRepository;
 import com.example.spring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,14 +16,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.spec.ECParameterSpec;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class MovieController {
   @Autowired
-  private CommentRepository commentRepository;
-  
+  private CommentRepository cr;
+
+  @Autowired
+  private FavoriteRepository fr;
+
   @Autowired
   private UserRepository ur;
   
@@ -36,7 +42,20 @@ public class MovieController {
   
   @RequestMapping(value = "/filme", method = RequestMethod.GET)
   public String movie(@RequestParam String id, Model model, HttpServletRequest request) {
-    List<Comment> commentList = commentRepository.findByMovieId(Long.parseLong(id));
+    List<Comment> commentList = cr.findByMovieId(Long.parseLong(id));
+
+    try {
+      long uid = (long) request.getSession().getAttribute("id");
+      Optional<User> userOp = ur.findById(uid);
+      if (userOp.isPresent()) {
+        Favorite fav = fr.findByUserAndMovieId(userOp.get(), Long.parseLong(id));
+        model.addAttribute("favorite", fav != null);
+      }
+    }
+    catch (Exception e) {
+      model.addAttribute("favorite", false);
+    }
+
     model.addAttribute("id", id);
     model.addAttribute("comments", commentList);
     List<Likes> likesList = likeRepository.findByMovieId(Long.parseLong(id));
@@ -67,10 +86,36 @@ public class MovieController {
       usercomment.setMovieId(Long.parseLong(movieid));
       usercomment.setUser(userOp.get());
     }
-    commentRepository.save(usercomment);
-    return "filme";
+    cr.save(usercomment);
+    return "redirect:/filme";
   }
-  
+
+  @RequestMapping(value = "/filme/favToggle", method = RequestMethod.GET)
+  public String movieFavToggle(@RequestParam String movieid, HttpServletRequest request) {
+    try {
+      long uid = (long) request.getSession().getAttribute("id");
+      Optional<User> userOp = ur.findById(uid);
+      if (userOp.isPresent()) {
+        Favorite fav = fr.findByUserAndMovieId(userOp.get(), Long.parseLong(movieid));
+        if (fav != null) {
+          fr.delete(fav);
+        }
+        else {
+          Favorite newFav = new Favorite();
+          newFav.setMovieId(Long.parseLong(movieid));
+          newFav.setUser(userOp.get());
+          fr.save(newFav);
+        }
+      }
+    }
+    catch (Exception e) {
+      return "redirect:/filme?id="+movieid;
+    }
+
+    return "redirect:/filme?id="+movieid;
+  }
+
+
   @RequestMapping(value = "/trending", method = RequestMethod.GET)
   public String trending() {
     return "trending";

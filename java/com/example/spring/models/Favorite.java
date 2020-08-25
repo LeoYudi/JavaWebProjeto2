@@ -17,4 +17,28 @@ public class Favorite implements Serializable {
   @ManyToOne
   @JoinColumn(nullable = false)
   private User user;
+
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public long getMovieId() {
+    return movieId;
+  }
+
+  public void setMovieId(long movieId) {
+    this.movieId = movieId;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 }
