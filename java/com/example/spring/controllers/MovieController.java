@@ -43,6 +43,7 @@ public class MovieController {
   @RequestMapping(value = "/filme", method = RequestMethod.GET)
   public String movie(@RequestParam String id, Model model, HttpServletRequest request) {
     List<Comment> commentList = cr.findByMovieId(Long.parseLong(id));
+    List<Likes> likesList = likeRepository.findByMovieId(Long.parseLong(id));
 
     try {
       long uid = (long) request.getSession().getAttribute("id");
@@ -58,14 +59,15 @@ public class MovieController {
 
     model.addAttribute("id", id);
     model.addAttribute("comments", commentList);
-    List<Likes> likesList = likeRepository.findByMovieId(Long.parseLong(id));
+
+
     long userId = (long) request.getSession().getAttribute("id");
     User user = ur.findById(userId).get();
     int likes = 0, dislikes = 0;
     for (Likes value : likesList) {
       if (value.getValue() == 1) likes++;
       else if (value.getValue() == -1) dislikes++;
-      
+
       if (value.getUser().getId() == user.getId())
         model.addAttribute("liked", value.getValue());
     }
@@ -87,7 +89,7 @@ public class MovieController {
       usercomment.setUser(userOp.get());
     }
     cr.save(usercomment);
-    return "redirect:/filme";
+    return "redirect:/filme?id="+movieid;
   }
 
   @RequestMapping(value = "/filme/favToggle", method = RequestMethod.GET)

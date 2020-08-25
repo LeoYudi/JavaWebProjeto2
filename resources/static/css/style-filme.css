@@ -188,6 +188,32 @@ a.titulo:hover{
   text-shadow: 3px 5px 5px black;
 }
 
+.comment img {
+  height: 100px;
+}
+
+.comments-list {
+  display: block;
+}
+.comments-list .media {
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+}
+
+.media-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.media-body, .media-left, .media-right {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.media-left {
+  padding-right: 10px;
+}
+
 @media screen and (max-width: 900px) {
   .container{
     position: static;

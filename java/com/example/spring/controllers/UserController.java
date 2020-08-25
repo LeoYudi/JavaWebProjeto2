@@ -65,7 +65,7 @@ public class UserController {
     try {
       if (!file.isEmpty()) {
         byte[] bytes = file.getBytes();
-        image = file.getOriginalFilename();
+        image = file.getOriginalFilename().replace(" ", "_");
         Path path = Paths.get(folder + image);
         path.startsWith(path);
         Files.write(path, bytes);
