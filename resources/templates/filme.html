@@ -1,94 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style-filme.css">
-    <link rel="shortcut icon" href="/img/icone.png" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
-    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
-    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style-filme.css">
+  <link rel="shortcut icon" href="/img/icone.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+  <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css"
+        media="all">
+  <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
 
 
-    <title>Filme</title>
-  </head>
+  <title>Filme</title>
+</head>
 
-  <body>
-    <div class="container">
-      <div class="header">
-        <h1 class="titulo"></h1>
-        <a class="titulo" href="/">
-          <h1>Voltar</h1>
-        </a>
-      </div>
-      <div class="sidebar">
-        <div class="side">
+<body>
+<div class="container">
+  <div class="header">
+    <h1 class="titulo"></h1>
+    <a class="titulo" href="/">
+      <h1>Voltar</h1>
+    </a>
+  </div>
+  <div class="sidebar">
+    <div class="side">
 
-          <div>
+      <div>
 
-            <div class="image"></div>
-            <div class="like-dislike-favorite">
-              <button class="btn">
-                <i class="fas fa-thumbs-up"></i>
-                <span id="likes">2000</span>
-              </button>
+        <div class="image"></div>
+        <div class="like-dislike-favorite">
+          <button class="btn">
+            <a id="anchorLikes" style="text-decoration: none; color: white">
+              <i class="fas fa-thumbs-up" id="iconLikes"></i>
+              <span id="likes" th:text="${likes}"></span>
+            </a>
+          </button>
 
-              <button class="btn">
-                <i class="fas fa-thumbs-down"></i>
-                <span id="dislikes">20</span>
-              </button>
+          <button class="btn">
+            <a id="anchorDislikes" style="text-decoration: none; color: white">
+              <i class="fas fa-thumbs-down" id="iconDislikes"></i>
+              <span id="dislikes" th:text="${dislikes}"></span>
+            </a>
+          </button>
 
-              <button class="btn">
-                <i class="fas fa-star"></i>
-                <span style="font-family: cursive;">Favoritar</span></button>
-            </div>
-
-            <div class="info">
-              <p id="data-lancamento">Lançamento: </p>
-              <p id="genero">Gêneros: </p>
-              <p id="duracao">Duração: </p>
-              <p id="nota">Nota (IMDB): </p>
-              <p id="classificacao">Classificação: </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="main">
-
-        <div class="titulo-filme"><h1></h1></div>
-
-        <div class="sinopse">
-          <h2 style="margin-bottom: 0;"><b>SINOPSE</b></h2>
-          <hr>
+          <button class="btn">
+            <i class="fas fa-star"></i>
+            <span style="font-family: cursive;">Favoritar</span></button>
         </div>
 
-        <form action="" method="POST">
-          <div class="comment">
-            <h2 style="margin-bottom: 0;"><b>COMENTÁRIOS</b></h2>
-            <hr>
-            <input id="movieID" type="text" value="" name="movieid" style="display: none">
-            <textarea name="comment" rows="5"></textarea>
-          </div>
-
-          <div class="submit">
-            <button class="btn" style="font-family:cursive" type="submit">Enviar</button>
-          </div>
-        </form>
+        <div class="info">
+          <p id="data-lancamento">Lançamento: </p>
+          <p id="genero">Gêneros: </p>
+          <p id="duracao">Duração: </p>
+          <p id="nota">Nota (IMDB): </p>
+          <p id="classificacao">Classificação: </p>
+        </div>
 
       </div>
-      <div class="footer">© COPYRIGHT 2020</div>
     </div>
-  </body>
+  </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://kit.fontawesome.com/2ab085298c.js" crossorigin="anonymous"></script>
-  <!-- <script src="/js/apiFilme.js"></script> -->
-  <script src="/js/apiFilme.js"></script>
 
+  <div class="main">
+
+    <div class="titulo-filme"><h1></h1></div>
+
+    <div class="sinopse">
+      <h2 style="margin-bottom: 0;"><b>SINOPSE</b></h2>
+      <hr>
+    </div>
+
+    <form action="" method="POST">
+      <div class="comment">
+        <h2 style="margin-bottom: 0;"><b>COMENTÁRIOS</b></h2>
+        <hr>
+        <input id="movieID" type="text" value="" name="movieid" style="display: none">
+        <textarea name="comment" rows="5"></textarea>
+      </div>
+
+      <div class="submit">
+        <button class="btn" style="font-family:cursive" type="submit">Enviar</button>
+      </div>
+    </form>
+
+  </div>
+  <div class="footer">© COPYRIGHT 2020</div>
+</div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/2ab085298c.js" crossorigin="anonymous"></script>
+<!-- <script src="/js/apiFilme.js"></script> -->
+<script src="/js/apiFilme.js"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var movieId = /*[[${id}]]*/'';
+    let anchorLikes = document.getElementById("anchorLikes");
+    let anchorDislikes = document.getElementById("anchorDislikes");
+    anchorLikes.href = "/like?value=1&movieId=" + movieId;
+    anchorDislikes.href = "/like?value=-1&movieId=" + movieId;
+    var liked = /*[[${liked}]]*/0;
+    console.log(liked);
+    if (liked === 1) {
+        let icon = document.getElementById("iconLikes");
+        icon.style.color = "#04ff04";
+    } else if (liked === -1) {
+        let icon = document.getElementById("iconDislikes");
+        icon.style.color = "red";
+    }
+
+
+    /*]]>*/
+</script>
 
 </html>
