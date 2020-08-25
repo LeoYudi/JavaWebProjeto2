@@ -1,6 +1,5 @@
 var imgPath = "https://image.tmdb.org/t/p/w500";
 const urlParams = new URLSearchParams(window.location.search);
-// var idFilme = tt4154796;
 var idFilme = urlParams.get('id');
 var dados = null;
 
@@ -9,8 +8,6 @@ var req2 = null;
 
 var xhr1 = new XMLHttpRequest();
 var xhr2 = new XMLHttpRequest();
-
-$('#voltar').attr('href', '/');
 
 $('#fav').attr("href", `/filme/favToggle?movieid=${idFilme}`);
 
