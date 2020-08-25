@@ -12,6 +12,13 @@ var xhr2 = new XMLHttpRequest();
 
 $('#voltar').attr('href', '/');
 
+$('#fav').attr("href", `/filme/favToggle?movieid=${idFilme}`);
+
+if (favorite) {
+  $('#favstar').css('color', '#ffdd00')
+  $('#favcontent').text('Desfavoritar')
+}
+
 xhr1.addEventListener("readystatechange", function () {
   if (this.readyState === this.DONE) {
     dados = JSON.parse(this.response)
