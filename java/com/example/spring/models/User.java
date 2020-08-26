@@ -13,28 +13,28 @@ public class User implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
-
+  
   @Column
   private String name;
-
+  
   @Column
   private String email;
-
+  
   @Column
   private String password;
-
+  
   @Column
   private String image;
-
+  
   @OneToMany(mappedBy = "user")
   private List<Comment> comments = new ArrayList<>();
-
+  
   @OneToMany(mappedBy = "user")
   private List<Favorite> favorites = new ArrayList<>();
-
+  
   @OneToMany(mappedBy = "user")
   private List<Likes> likes = new ArrayList<>();
-
+  
   public long getId() {
     return id;
   }
@@ -74,5 +74,4 @@ public class User implements Serializable {
   public void setImage(String image) {
     this.image = image;
   }
-
 }
